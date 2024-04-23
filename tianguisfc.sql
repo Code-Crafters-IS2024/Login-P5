@@ -78,3 +78,10 @@ CREATE TABLE encuentro(
     FOREIGN KEY (id_vendedor) REFERENCES vendedor(id_vendedor),
     FOREIGN KEY (id_compra) REFERENCES compra(id_compra)
 );
+
+CREATE TABLE productos(
+    id_compra INT NOT NULL,
+    id_producto INT NOT NULL,
+    FOREIGN KEY (id_compra) REFERENCES compra(id_compra),
+    FOREIGN KEY (id_producto) REFERENCES producto(id_producto)
+);
