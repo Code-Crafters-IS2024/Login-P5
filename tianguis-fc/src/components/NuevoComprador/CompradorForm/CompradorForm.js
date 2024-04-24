@@ -187,7 +187,7 @@ const CompradorForm = (props) => {
           />
         </div>
         <div className="nuevo-comprador__actions">
-          <button type="submit">Agregar Vendedor</button>
+          <button type="submit">Agregar Comprador</button>
         </div>
       </div>
     </form>

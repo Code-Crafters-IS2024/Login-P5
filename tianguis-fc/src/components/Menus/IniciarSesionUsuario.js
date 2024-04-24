@@ -6,14 +6,30 @@ import FiltroVistasUsuario from "./FiltroVistasUsuario";
 const IniciarSesionUsuario = (props) => {
 
     const [selectedLogIn, setSelectedLogIn] = useState('Comprador');
+    const [contraseniaIngresada, setContraseniaIngresada] = useState("");
+    const [numCuentaIngresado, setNumCuentaIngresado] = useState("");
 
     const logInChangeHandler = (selectedLogIn) => {
-        if(selectedLogIn === "Comprador"){
-            // Iniciar sesión como comprador
-        }else{
-            // Iniciar sesión como vendedor
-        }
         setSelectedLogIn(selectedLogIn);
+    };
+
+    const cambioNumCuentaHandler = (event) => {
+        setNumCuentaIngresado(event.target.value);
+    }
+
+    const cambioContraseniaHandler = (event) => {
+        setContraseniaIngresada(event.target.value);
+    }
+
+    const submitHandler = (event) =>{
+        event.preventDefault();
+
+        const usuario = {
+            numCuenta: numCuentaIngresado,
+            contrasenia: contraseniaIngresada,
+        }
+
+        console.log(usuario);
     };
 
     return(
@@ -26,6 +42,31 @@ const IniciarSesionUsuario = (props) => {
                     selected={selectedLogIn}
                     onChangeFilter={logInChangeHandler}
                 />
+            </Card>
+            <Card>
+                <form onSubmit={submitHandler}>
+                    <div>
+                        <label>Número de cuenta:</label>
+                        <input 
+                        type="text"
+                        value={numCuentaIngresado}
+                        onChange={cambioNumCuentaHandler}
+                        required
+                        />
+                    </div>
+                    <div>
+                        <label>Contraseña:</label>
+                        <input
+                        type="password"
+                        value={contraseniaIngresada}
+                        onChange={cambioContraseniaHandler}
+                        required
+                        />
+                    </div>
+                    <div>
+                        <button type="submit">Iniciar Sesión como {selectedLogIn === "Comprador" ? "Comprador" : "Vendedor"}</button>
+                    </div>
+                </form>
             </Card>
         </div>
     );

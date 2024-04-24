@@ -16,15 +16,12 @@ const RegistrarUsuario = (props) => {
 
     const guardaCompradorHandler = (compradorIngresado) => {
         console.log(compradorIngresado);
-        if(selectedRegister === "Comprador"){
-            // Guardar como comprador
-        }else{
-            // Guardar como vendedor
-        }
+        // Guardar como comprador
     };
 
     const guardaVendedorHandler = (vendedorIngresado) => {
         console.log(vendedorIngresado);
+        // Guardar como vendedor
     };
 
     return (

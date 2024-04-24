@@ -102,7 +102,7 @@ const VendedorForm = (props) => {
             required
           />
         </div>
-        <div className="nuevo-comprador__control">
+        <div className="nuevo-vendedor__control">
           <label>Contraseña: </label>
           <input
             type="password"
