@@ -16,7 +16,10 @@ CREATE TABLE vendedor(
     ap_pat varchar(50) NOT NULL,
     ap_mat varchar(50) NOT NULL,
     num_telefono varchar(20) NOT NULL,
-    correo varchar(255) NOT NULL
+    correo varchar(255) NOT NULL,
+    genero varchar(15) NOT NULL,
+    foto BLOB,
+    password varchar(255) NOT NULL
 );
 
 CREATE TABLE comprador(
@@ -26,7 +29,10 @@ CREATE TABLE comprador(
     ap_pat varchar(50) NOT NULL,
     ap_mat varchar(50) NOT NULL,
     num_telefono varchar(20) NOT NULL,
-    correo varchar(255) NOT NULL
+    correo varchar(255) NOT NULL,
+    genero varchar(15) NOT NULL,
+    foto BLOB,
+    password varchar(255) NOT NULL
 );
 
 -- ahora las tablas que tienen llaves foráneas fuera de la llave
