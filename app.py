@@ -1,10 +1,9 @@
 from flask import Flask, redirect, render_template, url_for, request, flash, session, jsonify
 
 from controller.catalogue import catalogue
-from classes.Usuario import obtenerUsuario
 from authenticate import authenticate_user
 
-from alchemyClasses import db
+from tianguis-fc.src.alchemyClasses import db
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://usertianguis:Developer123!@localhost:3306/TianguisFC"
 
