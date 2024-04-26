@@ -9,11 +9,12 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://usertianguis:Developer123!@localhost:3306/TianguisFC"
 
-
-app.register_blueprint(catalogue)
 app.config['SECRET_KEY'] = 'dev'
 
 db.init_app(app)
+
+app.register_blueprint(catalogue)
+
 
 
 @app.route('/')
