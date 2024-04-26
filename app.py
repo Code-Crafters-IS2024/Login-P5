@@ -2,6 +2,7 @@ from flask import Flask, redirect, render_template, url_for, request, flash, ses
 
 from controller.catalogue import catalogue
 from classes.Usuario import obtenerUsuario
+from authenticate import authenticate_user
 app = Flask(__name__)
 app.register_blueprint(catalogue)
 app.config['SECRET_KEY'] = 'dev'
@@ -44,9 +45,9 @@ def login():
         return jsonify({'error': 'Nombre de usuario o contraseña no ingresados'}), 401
     idUsuario = request.form.get('username')
     passwd = request.form.get('password')
-    if authenticate(idUsuario, passwd): #Ustedes van a tener que cambiar esto, por una validación con la DB.
+    if authenticate_user(idUsuario, passwd):
         usuarioDB = obtenerUsuario(idUsuario)
-        session['user_id'] = usuarioDB.id #definición de cookie de sesión.
+        session['user_id'] = usuarioDB.id 
         return {'id': usuarioDB.id, 'username': usuarioDB.username}
     return jsonify({'error': 'Nombre de usuario o contraseña incorrectos'}), 401
 >>>>>>> bcfbfab (Login)
