@@ -1,5 +1,5 @@
-from classes import db
-from tianguis-fc.src.models.Modelo_Vendedor import obtener_vendedor
+from alch.alchemyClasses import db
+from alch.models.Modelo_Vendedor import obtener_vendedor
 from sqlalchemy.orm.exc import NoResultFound
 import bcrypt
 

@@ -1,6 +1,6 @@
 from sqlalchemy import delete
-from alchemyClasses.Vendedor import Vendedor
-from alchemyClasses import db
+from alch.alchemyClasses.vendedor import Vendedor
+from alch.alchemyClasses import db
 from flask import flash
 
 def agregar_vendedor(data):
@@ -66,16 +66,3 @@ def obtener_vendedores():
     except Exception as e:
         print("Error:", str(e))
     return []
-
-def AutenticarComprador(ncuenta, pwd):
-        try:
-            comprador = Comprador.query.filter_by(numero_cuenta=int(ncuenta), password=password).first()
-
-            if(comprador is None):
-                return False
-            
-        except Exception as e:
-            ##No se encontro
-            return False
-        ##Se encontro
-        return True

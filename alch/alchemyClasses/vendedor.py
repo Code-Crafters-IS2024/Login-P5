@@ -1,6 +1,5 @@
 from sqlalchemy import Boolean, Column, Integer, LargeBinary, String
-
-from alchemyClasses import db
+from alch.alchemyClasses import db
 
 class Vendedor(db.Model):
     __tablename__ = 'usuarios'
