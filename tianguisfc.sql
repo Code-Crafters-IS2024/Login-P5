@@ -1,5 +1,16 @@
 -- Tiramos todas las tablas
 
+create database TianguisFC;
+
+create user 'lab'@'localhost' identified by 'Developer123!';
+
+grant all privileges on Tianguis.* to 'lab'@'localhost'
+with grant option;
+
+use Tianguis;
+
+-- Tiramos todas las tablas
+
 DROP TABLE IF EXISTS encuentro;
 DROP TABLE IF EXISTS resena;
 DROP TABLE IF EXISTS compra;
