@@ -32,7 +32,3 @@ El front end se ejecuta como una aplicacion de react. Para ejecutarlo, dentro de
 Se puede acceder a la aplicacion en un navegador web accediendo a  la dirección ```localhost:3000/``.
 
 Se requiere el modulo de react-router-dom.
-
-### Datos de login
-Usuario: 123
-Contraseña: 123
