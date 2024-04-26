@@ -11,7 +11,12 @@ Repositorio oficial de la materia de Ingenieria de Software de la Facultad de Ci
 
 ## Ejecucion
 
-La aplicacion de login se ejecuta como un servidor de backend usando la libreria Flask de Python, y un servidor de frontend usando React.
+La aplicacion de login se ejecuta como un servidor de backend usando la libreria Flask de Python, un servidor de frontend usando React, y un servidor SQL.
+
+El usuario para el login es "12345" y su contraseña "12345".
+
+### Base de datos
+Ejecutar el script ```tianguisfc.sql``` para levantar la base de datos y crear el esquema de la misma. Posteriormente ejecutar ```insert_user.sql``` que inserta un registro de usuario a usar como usuario de login de ejemplo.
 
 ### Backend
 El back end se ejecuta como un servidor flask de python. Para ejecutarlo, ejecutar ```app.py``` en la raiz.
