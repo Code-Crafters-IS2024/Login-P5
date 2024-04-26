@@ -24,7 +24,7 @@ El front end se ejecuta como una aplicacion de react. Para ejecutarlo, dentro de
 
 - ejecutar ```npm start```para iniciar la aplicacion.
 
-Se puede acceder a la aplicacion en un navegador web accediendo a  la dirección ```localhost:3000/".
+Se puede acceder a la aplicacion en un navegador web accediendo a  la dirección ```localhost:3000/``.
 
 Se requiere el modulo de react-router-dom.
 
