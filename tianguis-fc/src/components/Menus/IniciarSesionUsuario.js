@@ -2,34 +2,47 @@ import React, { useState} from "react";
 import './IniciarSesionUsuario.css';
 import Card from "../UI/Card";
 import FiltroVistasUsuario from "./FiltroVistasUsuario";
+import { Navigate } from "react-router";
+import LoginStatus from "../Utils/FetchLogIn";
 
 const IniciarSesionUsuario = (props) => {
 
-    const [selectedLogIn, setSelectedLogIn] = useState('Comprador');
-    const [contraseniaIngresada, setContraseniaIngresada] = useState("");
-    const [numCuentaIngresado, setNumCuentaIngresado] = useState("");
+    let logStatus = LoginStatus();
 
-    const logInChangeHandler = (selectedLogIn) => {
-        setSelectedLogIn(selectedLogIn);
-    };
-
-    const cambioNumCuentaHandler = (event) => {
-        setNumCuentaIngresado(event.target.value);
+    if(logStatus == null)
+    {
+        return null
+    }
+    //Si el usuario esta logeado, redirigir al inicio
+    if(logStatus != null && logStatus.logged)
+    {
+        return <Navigate to="/"/>
     }
 
-    const cambioContraseniaHandler = (event) => {
-        setContraseniaIngresada(event.target.value);
-    }
+    //Hacer fetch al back end para determinar si los datos son correctos
+    async function sendFormData(formData) {
+        await fetch('/api/login', {
+          method: 'POST',
+          body: formData
+        })
+        .then((response) => response.json())
+      }
 
-    const submitHandler = (event) =>{
+    //Submit
+    async function submitHandler(event){
         event.preventDefault();
+        const form = event.target;
 
-        const usuario = {
-            numCuenta: numCuentaIngresado,
-            contrasenia: contraseniaIngresada,
-        }
+        const username = form.username.value;
+        const password = form.password.value;
 
-        console.log(usuario);
+        let formData = new FormData()
+        formData.append('username', username)
+        formData.append('password', password)
+
+        await sendFormData(formData);
+        //Ir a home
+        window.location.href = "/"
     };
 
     return(
@@ -38,33 +51,25 @@ const IniciarSesionUsuario = (props) => {
             ¿Ya tienes sesión?
             ¿Qué tipo de usuario eres?<br></br>
             <Card>
-                <FiltroVistasUsuario
-                    selected={selectedLogIn}
-                    onChangeFilter={logInChangeHandler}
-                />
-            </Card>
-            <Card>
                 <form onSubmit={submitHandler}>
                     <div>
                         <label>Número de cuenta:</label>
                         <input 
                         type="text"
-                        value={numCuentaIngresado}
-                        onChange={cambioNumCuentaHandler}
                         required
+                        name="username"
                         />
                     </div>
                     <div>
                         <label>Contraseña:</label>
                         <input
                         type="password"
-                        value={contraseniaIngresada}
-                        onChange={cambioContraseniaHandler}
                         required
+                        name="password"
                         />
                     </div>
                     <div>
-                        <button type="submit">Iniciar Sesión como {selectedLogIn === "Comprador" ? "Comprador" : "Vendedor"}</button>
+                        <button type="submit">Iniciar Sesión</button>
                     </div>
                 </form>
             </Card>

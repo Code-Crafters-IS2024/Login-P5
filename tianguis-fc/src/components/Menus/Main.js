@@ -1,30 +1,21 @@
 import React, { useState} from "react";
+import { NavLink, Route, Routes } from 'react-router-dom';
 import './Main.css';
-import Card from "../UI/Card";
-import RegistrarUsuario from "./RegistrarUsuario";
+
 import IniciarSesionUsuario from "./IniciarSesionUsuario";
+import Start from "./Start";
+import Home from "./Home";
+import Logout from "./Logout";
 
+//Main con rutas de navegacion y sus respectivos componentes 
+const Main = () => {
 
-
-const Main = (props) => {
-
-    const [isSignInView, setIsSignInView] = useState(false);
-    const textos = ["Cambiar a Inicio de Sesión", "Cambiar a Registro de Usuarios"];
-
-    const viewChangeHandler = () => {
-        setIsSignInView(!isSignInView);
-    };
-
-    return (
-        <div className="menu-principal">
-            <button className="main-view-selecter" onClick={viewChangeHandler}>
-                {textos[isSignInView ? 0 : 1]}
-            </button>
-            <Card>
-                {isSignInView ? <IniciarSesionUsuario /> : <RegistrarUsuario />}
-            </Card>
-        </div>
-    );
+    return (<Routes>
+                <Route path="/" Component={Start}></Route>
+                <Route path="/login" Component={IniciarSesionUsuario}></Route>
+                <Route path="/home" Component={Home}></Route>
+                <Route path="/logout" Component={Logout}/>
+             </Routes>);
 
 };
 
