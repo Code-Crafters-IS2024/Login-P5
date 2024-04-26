@@ -66,3 +66,16 @@ def obtener_vendedores():
     except Exception as e:
         print("Error:", str(e))
     return []
+
+def AutenticarComprador(ncuenta, pwd):
+        try:
+            comprador = Comprador.query.filter_by(numero_cuenta=int(ncuenta), password=password).first()
+
+            if(comprador is None):
+                return False
+            
+        except Exception as e:
+            ##No se encontro
+            return False
+        ##Se encontro
+        return True
