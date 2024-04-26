@@ -41,9 +41,8 @@ def login():
 @app.route('/api/logout')
 def logout():
     session['user_id'] = None
-    return jsonify({'message': 'Saliste de la sesion'}), 200
->>>>>>> bcfbfab (Login)
-
+    return jsonify({"logged" : False,
+                "user" : None})
 
 if __name__ == '__main__':
     app.run()
