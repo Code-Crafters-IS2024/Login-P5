@@ -3,9 +3,18 @@ from flask import Flask, redirect, render_template, url_for, request, flash, ses
 from controller.catalogue import catalogue
 from classes.Usuario import obtenerUsuario
 from authenticate import authenticate_user
+
+from alchemyClasses import db
+
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://usertianguis:Developer123!@localhost:3306/TianguisFC"
+
+
 app = Flask(__name__)
 app.register_blueprint(catalogue)
 app.config['SECRET_KEY'] = 'dev'
+
+db.init_app(app)
+
 
 @app.route('/')
 def hello_world():
