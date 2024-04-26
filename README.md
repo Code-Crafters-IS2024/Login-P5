@@ -14,12 +14,12 @@ Repositorio oficial de la materia de Ingenieria de Software de la Facultad de Ci
 La aplicacion de login se ejecuta como un servidor de backend usando la libreria Flask de Python, y un servidor de frontend usando React.
 
 ### Backend
-El back end se ejecuta como un servidor flask de python. Para ejecutarlo, ejecutar ```app.py``` en el directiorio ```server``` usando python.
+El back end se ejecuta como un servidor flask de python. Para ejecutarlo, ejecutar ```app.py``` en la raiz.
 
 Se requiere la libreria Flask.
 
 ### Front end
-El front end se ejecuta como una aplicacion de react. Para ejecutarlo, dentro del directorio ```client```:
+El front end se ejecuta como una aplicacion de react. Para ejecutarlo, dentro del directorio ```tianguis-fc``:
 - ejecutar ```npm install``` y ```npm install react-router-dom``` para instalar las paqueterias requeridas, si no estan ya instaladas.
 
 - ejecutar ```npm start```para iniciar la aplicacion.
